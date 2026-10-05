@@ -1,0 +1,824 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>City Hospital</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f2f7f9;
+            color: #333;
+        }
+
+        /* Header */
+
+        header {
+            background-color: #176b87;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            font-size: 18px;
+        }
+
+        /* Navigation */
+
+        nav {
+            background-color: #0d4f64;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #b9f3ff;
+        }
+
+        /* Hero */
+
+        .hero {
+            background-color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .hero h2 {
+            color: #176b87;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 850px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            background-color: #176b87;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #0d4f64;
+        }
+
+        /* Sections */
+
+        section {
+            padding: 50px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            color: #176b87;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        /* About */
+
+        .about {
+            background-color: #e8f6f8;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 900px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* Services */
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 8px #ccc;
+        }
+
+        .service-card h3 {
+            color: #176b87;
+        }
+
+        .service-card p {
+            line-height: 1.6;
+        }
+
+        /* Doctors */
+
+        .doctors-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .doctor-card {
+            background-color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 8px #ccc;
+        }
+
+        .doctor-icon {
+            width: 90px;
+            height: 90px;
+            margin: auto;
+            border-radius: 50%;
+            background-color: #176b87;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+        }
+
+        .doctor-card h3 {
+            color: #176b87;
+        }
+
+        .designation {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .specialization {
+            color: #176b87;
+            font-weight: bold;
+        }
+
+        .doctor-card p {
+            line-height: 1.5;
+        }
+
+        /* Departments */
+
+        .department-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .department {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 7px #ccc;
+        }
+
+        .department h3 {
+            color: #176b87;
+        }
+
+        /* Appointment */
+
+        .appointment {
+            background-color: #e8f6f8;
+            text-align: center;
+        }
+
+        .appointment p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* Contact */
+
+        .contact {
+            background-color: white;
+            text-align: center;
+        }
+
+        .contact p {
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .emergency {
+            color: red;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* Footer */
+
+        footer {
+            background-color: #0d4f64;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 900px) {
+
+            .services-container,
+            .doctors-container,
+            .department-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .services-container,
+            .doctors-container,
+            .department-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- Header -->
+
+<header>
+
+    <h1>City Hospital</h1>
+
+    <p>
+        Quality Healthcare • Trusted Doctors • Better Life
+    </p>
+
+</header>
+
+
+<!-- Navigation -->
+
+<nav>
+
+    <a href="#home">Home</a>
+
+    <a href="#about">About</a>
+
+    <a href="#services">Services</a>
+
+    <a href="#doctors">Doctors</a>
+
+    <a href="#departments">Departments</a>
+
+    <a href="#appointment">Appointment</a>
+
+    <a href="#contact">Contact</a>
+
+</nav>
+
+
+<!-- Home -->
+
+<section class="hero" id="home">
+
+    <h2>Welcome to City Hospital</h2>
+
+    <p>
+
+        City Hospital provides high-quality healthcare services
+        with experienced doctors, modern medical facilities and
+        patient-centered care.
+
+        Our goal is to provide safe, affordable and reliable
+        healthcare for everyone.
+
+    </p>
+
+    <a href="#appointment" class="button">
+        Book an Appointment
+    </a>
+
+</section>
+
+
+<!-- About -->
+
+<section class="about" id="about">
+
+    <h2>About City Hospital</h2>
+
+    <p>
+
+        City Hospital is a multi-specialty healthcare center
+        dedicated to providing comprehensive medical care.
+
+        Our hospital brings together experienced doctors,
+        trained medical staff and modern facilities.
+
+        We provide diagnosis, treatment, emergency care and
+        preventive healthcare services under one roof.
+
+    </p>
+
+</section>
+
+
+<!-- Services -->
+
+<section id="services">
+
+    <h2>Our Services</h2>
+
+    <div class="services-container">
+
+        <div class="service-card">
+
+            <h3>Emergency Care</h3>
+
+            <p>
+                24/7 emergency medical services for patients
+                requiring immediate medical attention.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>General Consultation</h3>
+
+            <p>
+                Medical consultation, diagnosis and treatment
+                for common health conditions.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>Cardiology</h3>
+
+            <p>
+                Complete diagnosis and treatment services
+                for heart-related diseases.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>Neurology</h3>
+
+            <p>
+                Specialized care for disorders related to
+                the brain, nerves and nervous system.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>Orthopedics</h3>
+
+            <p>
+                Treatment for bones, joints, muscles,
+                ligaments and orthopedic conditions.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>Laboratory Services</h3>
+
+            <p>
+                Diagnostic laboratory tests to support
+                accurate medical diagnosis.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>Pharmacy</h3>
+
+            <p>
+                Convenient access to prescribed medicines
+                and healthcare products.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>Health Checkups</h3>
+
+            <p>
+                Regular health screening and preventive
+                health checkup packages.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>Ambulance Service</h3>
+
+            <p>
+                Emergency ambulance transportation for
+                patients requiring immediate hospital care.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Doctors -->
+
+<section id="doctors">
+
+    <h2>Our Doctors</h2>
+
+    <div class="doctors-container">
+
+
+        <!-- General Physician -->
+
+        <div class="doctor-card">
+
+            <div class="doctor-icon">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                Dr. Rajesh Kumar
+            </h3>
+
+            <p class="designation">
+                Senior General Physician
+            </p>
+
+            <p class="specialization">
+                Specialization: General Medicine
+            </p>
+
+            <p>
+                Experienced in diagnosis and treatment of
+                general medical conditions and preventive
+                healthcare.
+            </p>
+
+        </div>
+
+
+        <!-- Cardiologist -->
+
+        <div class="doctor-card">
+
+            <div class="doctor-icon">
+                👩‍⚕️
+            </div>
+
+            <h3>
+                Dr. Priya Sharma
+            </h3>
+
+            <p class="designation">
+                Senior Cardiologist
+            </p>
+
+            <p class="specialization">
+                Specialization: Cardiology
+            </p>
+
+            <p>
+                Specializes in heart diseases, cardiac
+                diagnosis and cardiovascular treatment.
+            </p>
+
+        </div>
+
+
+        <!-- Neurologist -->
+
+        <div class="doctor-card">
+
+            <div class="doctor-icon">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                Dr. Arjun Rao
+            </h3>
+
+            <p class="designation">
+                Consultant Neurologist
+            </p>
+
+            <p class="specialization">
+                Specialization: Neurology
+            </p>
+
+            <p>
+                Specializes in brain, nerve and nervous
+                system disorders.
+            </p>
+
+        </div>
+
+
+        <!-- Orthopedic -->
+
+        <div class="doctor-card">
+
+            <div class="doctor-icon">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                Dr. Vikram Reddy
+            </h3>
+
+            <p class="designation">
+                Senior Orthopedic Specialist
+            </p>
+
+            <p class="specialization">
+                Specialization: Orthopedics
+            </p>
+
+            <p>
+                Specializes in bone, joint, muscle and
+                sports-related orthopedic conditions.
+            </p>
+
+        </div>
+
+
+        <!-- Dermatologist -->
+
+        <div class="doctor-card">
+
+            <div class="doctor-icon">
+                👩‍⚕️
+            </div>
+
+            <h3>
+                Dr. Anjali Mehta
+            </h3>
+
+            <p class="designation">
+                Consultant Dermatologist
+            </p>
+
+            <p class="specialization">
+                Specialization: Dermatology
+            </p>
+
+            <p>
+                Specializes in skin, hair and nail disorders
+                and dermatological treatments.
+            </p>
+
+        </div>
+
+
+        <!-- Pediatrician -->
+
+        <div class="doctor-card">
+
+            <div class="doctor-icon">
+                👩‍⚕️
+            </div>
+
+            <h3>
+                Dr. Sneha Patel
+            </h3>
+
+            <p class="designation">
+                Senior Pediatrician
+            </p>
+
+            <p class="specialization">
+                Specialization: Pediatrics
+            </p>
+
+            <p>
+                Provides healthcare, diagnosis and treatment
+                for infants, children and adolescents.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Departments -->
+
+<section id="departments">
+
+    <h2>Our Departments</h2>
+
+    <div class="department-container">
+
+
+        <div class="department">
+
+            <h3>General Medicine</h3>
+
+            <p>
+                Diagnosis and treatment of general
+                health conditions.
+            </p>
+
+        </div>
+
+
+        <div class="department">
+
+            <h3>Cardiology</h3>
+
+            <p>
+                Specialized care for heart and
+                cardiovascular diseases.
+            </p>
+
+        </div>
+
+
+        <div class="department">
+
+            <h3>Neurology</h3>
+
+            <p>
+                Diagnosis and treatment of
+                neurological disorders.
+            </p>
+
+        </div>
+
+
+        <div class="department">
+
+            <h3>Orthopedics</h3>
+
+            <p>
+                Care for bones, joints and
+                musculoskeletal conditions.
+            </p>
+
+        </div>
+
+
+        <div class="department">
+
+            <h3>Dermatology</h3>
+
+            <p>
+                Medical care for skin, hair
+                and nail conditions.
+            </p>
+
+        </div>
+
+
+        <div class="department">
+
+            <h3>Pediatrics</h3>
+
+            <p>
+                Healthcare services for children
+                and adolescents.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Appointment -->
+
+<section class="appointment" id="appointment">
+
+    <h2>Patient Registration & Appointment</h2>
+
+    <p>
+
+        To register as a patient and book an appointment,
+        click the button below.
+
+    </p>
+
+    <a href="patient_registration.php" class="button">
+        Register Patient
+    </a>
+
+</section>
+
+
+<!-- Contact -->
+
+<section class="contact" id="contact">
+
+    <h2>Contact Us</h2>
+
+    <p>
+        <strong>City Hospital</strong>
+    </p>
+
+    <p>
+        📍 Main Road, Guntur, Andhra Pradesh
+    </p>
+
+    <p>
+        📞 Phone: +91 98765 43210
+    </p>
+
+    <p>
+        ✉ Email: cityhospital@gmail.com
+    </p>
+
+    <p>
+        🕒 Hospital Timings: 24 Hours
+    </p>
+
+    <p class="emergency">
+        🚑 Emergency: 24/7 Available
+    </p>
+
+</section>
+
+
+<!-- Footer -->
+
+<footer>
+
+    <p>
+        © 2026 City Hospital. All Rights Reserved.
+    </p>
+
+    <p>
+        Quality Healthcare | Trusted Doctors | Patient Care
+    </p>
+
+</footer>
+
+</body>
+</html>
+```
